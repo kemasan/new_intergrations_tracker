@@ -22,7 +22,7 @@ To extract token holders' addresses from Ethplorer needs to use its API (see for
 
     create a function to holders' addresses filter for contract addresses: def is_contract(vaddr)
 
-    create a function to parse row data: def parse_holders_contracts(df)
+    create a function to parse raw data: def parse_holders_contracts(df)
 
     create a tokens data frame: pd.DataFrame(pd.read_csv('eth_LSDs.csv'))
 
@@ -36,6 +36,7 @@ To extract token holders' addresses from Ethplorer needs to use its API (see for
 
 
 Contribution
+
 We welcome contributions and suggestions to enhance the accuracy and efficiency of our token holder tracking process. If you have any improvements or ideas, please feel free to create pull requests or open issues.
 
 
