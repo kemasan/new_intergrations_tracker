@@ -1,23 +1,38 @@
 # new_intergrations_tracker
 
 
-This repository contains the documentation for the tracking process of token holders, which involves several steps to identify and categorize different types of addresses using APIs and data sources. The goal of this process is to find new protocols that integrate stAssets, maintain an up-to-date and organized list of token holders' addresses for analysis and reporting purposes.
+This repository contains the documentation for the tracking process of token holders, which involves several steps to identify and categorize different types of addresses using APIs and data sources. The goal of this process is to find new protocols that integrate stAssets, and maintain an up-to-date and organized list of token holders' addresses for analysis and reporting purposes.
 
-Steps
-Step 1: get token_address via API
-In this initial step, we retrieve a list of token holders' addresses by interfacing with an API.
 
-Step 2: filter for the contract addresses
-Once we have obtained the list of token holder addresses, we proceed to check each address to determine if it is a contract address.
+Requirements:
 
-Step 3: filter for the already-known contract addresses
-We combine the list of verified contract addresses, obtained from the previous step, with the list of token holders' addresses that we already have from the DUNE data source. This merging process allows us to associate names with contract addresses.
+    python, pip, jupyter notebook (any other working environment)
 
-Step 4: tag Unknown Addresses
-Addresses that are not present in our existing list of token holders are classified as unknown. We add these addresses to the list of holders' addresses with the tag "TBD" (To Be Determined) for further identification process.
+Instruction:
 
-Step 5: verify Unknown New Token Addresses
-Within this step, we verify whether the unknown new addresses are indeed token addresses. If they are identified as valid token addresses, we add them to the list of LSTs with the tag "TBD." for further identification process.
+    create and activate a virtualenv
+
+    open notebook in browser
+
+Working notebook
+
+To extract token holders' addresses from Ethplorer needs to use its API (see for Ethplorer API --> getTopTokenHolders) and Infura to simplify access to web3 infrastructure
+
+    import the required libraries and packages
+
+    create a function to holders' addresses filter for contract addresses: def is_contract(vaddr)
+
+    create a function to parse row data: def parse_holders_contracts(df)
+
+    create a tokens data frame: pd.DataFrame(pd.read_csv('eth_LSDs.csv'))
+
+    create a holders' data frame (already known addresses): pd.DataFrame(pd.read_csv('eth_holders.csv'))
+
+    create a 'for' loop to get holders of each token from the tokens data frame, merge all holders' date, then compare with known holders' addresses, tag unknown addresses \
+    as 'TBD', save .csv file: for token_address in lsd.minted_token_address...
+      
+    create a 'for' loop to check if unknown addresses are token addresses, and if they are token addresses, add them to the list of LSTs with the tag 'TBD'
+
 
 Contribution
 We welcome contributions and suggestions to enhance the accuracy and efficiency of our token holder tracking process. If you have any improvements or ideas, please feel free to create pull requests or open issues.
