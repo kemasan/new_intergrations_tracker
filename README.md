@@ -28,10 +28,10 @@ To extract token holders' addresses from Ethplorer needs to use its API (see for
 
     create a holders' data frame (already known addresses): pd.DataFrame(pd.read_csv('eth_holders.csv'))
 
-    create a 'for' loop to get holders of each token from the tokens data frame, merge all holders' date, then compare with \
+    create a 'for' loop to get holders of each token from the tokens data frame, merge all holders' date, then compare with 
     known holders' addresses, tag unknown addresses as 'TBD', save .csv file: for token_address in lsd.minted_token_address...
       
-    create a 'for' loop to check if unknown addresses are token addresses, and if they are token addresses, add \
+    create a 'for' loop to check if unknown addresses are token addresses, and if they are token addresses, add 
     them to the list of LSTs with the tag 'TBD'
 
 
